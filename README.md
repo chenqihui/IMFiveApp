@@ -2,7 +2,8 @@ IMFiveApp
 =========
 
 低仿QQ5.0
-(声明：工程里面的图片都是来源于QQ5.0的原始图片，请注意，我此处只是用于demo，如果有不妥，可以告知，立马撤掉。)
+(声明：工程里面的图片都是来源于QQ5.0的原始图片，请注意，我此处只是用于demo，如果有不妥，可以告知，立马撤掉。
+Demo制作比较粗糙，QQ本身这部分内容很多，还有对应的文字颜色，显示与否等等的配置，很繁多，此处就没有做太细。)
 
 ![image](https://github.com/chenqihui/IMFiveApp/blob/master/screenshots/IMFiveAppGif.gif)
 
