@@ -26,7 +26,7 @@
     self.contentView.frame = CGRectMake(5, 0, self.width - 10, self.height);
     self.contentView.layer.borderWidth = 1;
     self.contentView.layer.cornerRadius = 6;
-    self.contentView.layer.borderColor = [UIColor grayColor].CGColor;
+    self.contentView.layer.borderColor = [UIColor clearColor].CGColor;
     
     float w = self.height/5;
     float wIV = w*4;
@@ -50,6 +50,7 @@
 - (void)setDataForView:(NSArray *)ar selected:(BOOL)bSelected
 {
     UIImageView *titleIV = (UIImageView *)[self.contentView viewWithTag:11];
+    titleIV.contentMode = UIViewContentModeScaleAspectFit;
     [titleIV setImage:[UIImage imageNamed:[ar objectAtIndex:2]]];
     
     UILabel *titleL = (UILabel *)[self.contentView viewWithTag:12];

@@ -30,7 +30,7 @@
     
     [self.view setBackgroundColor:[UIColor whiteColor]];
     
-    [self createNavWithTitle:@"猪蹄商场" createMenuItem:^UIView *(int nIndex)
+    [self createNavWithTitle:@"主题商场" createMenuItem:^UIView *(int nIndex)
      {
          if (nIndex == 1)
          {
@@ -41,7 +41,7 @@
              [btn setFrame:CGRectMake(10, (self.navView.height - i.size.height)/2, i.size.width, i.size.height)];
              [btn addTarget:self action:@selector(backAction:) forControlEvents:UIControlEventTouchUpInside];
              
-             UILabel *btnL = [[UILabel alloc] initWithFrame:CGRectMake(20, 0, btn.width - 15, btn.height)];
+             UILabel *btnL = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, btn.width+40, btn.height + 25)];
              [btnL setText:@"返回"];
              [btnL setTextColor:[UIColor whiteColor]];
              [btn addSubview:btnL];
