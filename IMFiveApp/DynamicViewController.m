@@ -7,6 +7,8 @@
 //
 
 #import "DynamicViewController.h"
+#import "TestViewController.h"
+#import "SliderViewController.h"
 
 @interface DynamicViewController ()<UITableViewDataSource, UITableViewDelegate>
 {
@@ -117,6 +119,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [[SliderViewController sharedSliderController].navigationController pushViewController:[[TestViewController alloc] init] animated:YES];
 }
 
 @end
