@@ -11,6 +11,7 @@
 #import "SliderViewController.h"
 #import "LeftViewController.h"
 #import "MainTabViewController.h"
+#import "MLBlackTransition.h"
 
 @implementation AppDelegate
 
@@ -36,7 +37,9 @@
         leftVC.contentView.transform = lconT;
     };
     
-    [UIViewController validatePanPackWithMLTransitionGestureRecognizerType:MLTransitionGestureRecognizerTypePan];
+//    [UIViewController validatePanPackWithMLTransitionGestureRecognizerType:MLTransitionGestureRecognizerTypePan];
+    //手势返回更新为MLBlackTransition
+    [MLBlackTransition validatePanPackWithMLBlackTransitionGestureRecognizerType:MLBlackTransitionGestureRecognizerTypePan];
     
     UINavigationController *naviC = [[UINavigationController alloc] initWithRootViewController:[SliderViewController sharedSliderController]];
     

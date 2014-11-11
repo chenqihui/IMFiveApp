@@ -30,18 +30,15 @@
     
     [self.view setBackgroundColor:[UIColor whiteColor]];
     
-    [self createNavWithTitle:@"主题商场" createMenuItem:^UIView *(int nIndex)
+    [self createNavWithTitle:@"猪蹄商场" createMenuItem:^UIView *(int nIndex)
      {
          if (nIndex == 1)
          {
              UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-             UIImage *i = [UIImage imageNamed:@"header_leftbtn_nor.png"];
-             [btn setImage:i forState:UIControlStateNormal];
-             [btn setImage:[UIImage imageNamed:@"header_leftbtn_press.png"] forState:UIControlStateHighlighted];
-             [btn setFrame:CGRectMake(10, (self.navView.height - i.size.height)/2, i.size.width, i.size.height)];
+             [btn setFrame:CGRectMake(10, (self.navView.height - 40)/2, 60, 40)];
              [btn addTarget:self action:@selector(backAction:) forControlEvents:UIControlEventTouchUpInside];
              
-             UILabel *btnL = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, btn.width+40, btn.height + 25)];
+             UILabel *btnL = [[UILabel alloc] initWithFrame:CGRectMake(20, 0, btn.width - 15, btn.height)];
              [btnL setText:@"返回"];
              [btnL setTextColor:[UIColor whiteColor]];
              [btn addSubview:btnL];
@@ -52,7 +49,7 @@
      }];
     
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
-    flowLayout.itemSize = CGSizeMake(self.view.width/2, 90);
+    flowLayout.itemSize = CGSizeMake(self.view.width/2 - 5, 90);
     flowLayout.minimumInteritemSpacing = 0;//列距
     _collectionV = [[UICollectionView alloc] initWithFrame:CGRectMake(0, self.navView.bottom + 10, self.view.width, self.view.height - self.navView.bottom - 10) collectionViewLayout:flowLayout];
     [_collectionV registerClass:[SelectThemeCollectionViewCell class] forCellWithReuseIdentifier:@"colletionCell"];

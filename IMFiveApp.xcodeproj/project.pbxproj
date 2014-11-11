@@ -109,6 +109,7 @@
 		74D3CFAF19B304440028310B /* sidebar_signature_nor@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74D3CF9C19B304440028310B /* sidebar_signature_nor@2x.png */; };
 		74D3CFB019B304440028310B /* sidebar_signature_other@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74D3CF9D19B304440028310B /* sidebar_signature_other@2x.png */; };
 		74D3CFB119B304440028310B /* vip_shadow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74D3CF9E19B304440028310B /* vip_shadow@2x.png */; };
+		74E9CE5B1A119C0600CE5C7A /* MLBlackTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 74E9CE5A1A119C0600CE5C7A /* MLBlackTransition.m */; };
 		D8A93C6119F9FB43001515A7 /* ioapi.c in Sources */ = {isa = PBXBuildFile; fileRef = D8A93C5719F9FB43001515A7 /* ioapi.c */; };
 		D8A93C6219F9FB43001515A7 /* mztools.c in Sources */ = {isa = PBXBuildFile; fileRef = D8A93C5919F9FB43001515A7 /* mztools.c */; };
 		D8A93C6319F9FB43001515A7 /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = D8A93C5B19F9FB43001515A7 /* unzip.c */; };
@@ -250,6 +251,8 @@
 		74D3CF9C19B304440028310B /* sidebar_signature_nor@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sidebar_signature_nor@2x.png"; sourceTree = "<group>"; };
 		74D3CF9D19B304440028310B /* sidebar_signature_other@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sidebar_signature_other@2x.png"; sourceTree = "<group>"; };
 		74D3CF9E19B304440028310B /* vip_shadow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "vip_shadow@2x.png"; sourceTree = "<group>"; };
+		74E9CE591A119C0600CE5C7A /* MLBlackTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLBlackTransition.h; sourceTree = "<group>"; };
+		74E9CE5A1A119C0600CE5C7A /* MLBlackTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLBlackTransition.m; sourceTree = "<group>"; };
 		D8A93C5619F9FB43001515A7 /* crypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crypt.h; sourceTree = "<group>"; };
 		D8A93C5719F9FB43001515A7 /* ioapi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ioapi.c; sourceTree = "<group>"; };
 		D8A93C5819F9FB43001515A7 /* ioapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ioapi.h; sourceTree = "<group>"; };
@@ -325,6 +328,7 @@
 				D8A93C5419F9FB43001515A7 /* ZipArchive */,
 				744EE9D219A4C76400941E50 /* resource */,
 				7430607D19A4522100D3625F /* ViewExtend */,
+				74E9CE581A119C0600CE5C7A /* MLBlackTransition */,
 				7430606C19A4516C00D3625F /* MLTransition */,
 				7430607119A4516C00D3625F /* QHUtills */,
 				7430607519A4516C00D3625F /* SliderViewController */,
@@ -528,6 +532,15 @@
 				74D3CF5E19B3033F0028310B /* usersummary_icon_lv_sun@2x.png */,
 			);
 			path = Default;
+			sourceTree = "<group>";
+		};
+		74E9CE581A119C0600CE5C7A /* MLBlackTransition */ = {
+			isa = PBXGroup;
+			children = (
+				74E9CE591A119C0600CE5C7A /* MLBlackTransition.h */,
+				74E9CE5A1A119C0600CE5C7A /* MLBlackTransition.m */,
+			);
+			path = MLBlackTransition;
 			sourceTree = "<group>";
 		};
 		D8A93C5419F9FB43001515A7 /* ZipArchive */ = {
@@ -739,6 +752,7 @@
 				D8A93C6419F9FB43001515A7 /* zip.c in Sources */,
 				7430608319A4522100D3625F /* UIView+KGViewExtend.m in Sources */,
 				7430607919A4516D00D3625F /* MLTransitionAnimation.m in Sources */,
+				74E9CE5B1A119C0600CE5C7A /* MLBlackTransition.m in Sources */,
 				7430609319A4849B00D3625F /* MainTabViewController.m in Sources */,
 				D8A93C6219F9FB43001515A7 /* mztools.c in Sources */,
 				D8A93C6319F9FB43001515A7 /* unzip.c in Sources */,

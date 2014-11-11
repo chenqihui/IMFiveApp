@@ -67,9 +67,10 @@
     [self.view addSubview:_navView];
     _navView.userInteractionEnabled = YES;
     
+    UILabel *titleLabel;
     if (szTitle != nil)
     {
-        UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake((_navView.width - 200)/2, (_navView.height - 40)/2, 200, 40)];
+        titleLabel = [[UILabel alloc] initWithFrame:CGRectMake((_navView.width - 200)/2, (_navView.height - 40)/2, 200, 40)];
         [titleLabel setText:szTitle];
         [titleLabel setTextAlignment:NSTextAlignmentCenter];
         [titleLabel setTextColor:[UIColor whiteColor]];
