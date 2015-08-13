@@ -11,16 +11,25 @@
 #import "SliderViewController.h"
 #import "SelectThemeViewController.h"
 
-@interface LeftViewController ()<UITableViewDataSource, UITableViewDelegate>
+@interface LeftViewController ()<UITableViewDataSource, UITableViewDelegate, UINavigationBarDelegate, UIImagePickerControllerDelegate>
 {
     NSArray *_arData;
     NSDictionary *_dicData;
     UITableView *_tableView;
 }
 
+@property (nonatomic, strong) UIImageView *headerIV;
+
 @end
 
 @implementation LeftViewController
+
+- (void)dealloc {
+    _arData = nil;
+    _dicData = nil;
+    _tableView = nil;
+    self.headerIV = nil;
+}
 
 - (void)viewDidLoad
 {
@@ -52,12 +61,16 @@
     _contentView = [[UIView alloc] initWithFrame:self.view.bounds];
     _contentView.backgroundColor = [UIColor clearColor];
     [self.view addSubview:_contentView];
-    NSLog(@"%f", _contentView.layer.anchorPoint.x);
+//    NSLog(@"%f", _contentView.layer.anchorPoint.x);
     
-    UIImageView *headerIV = [[UIImageView alloc] initWithFrame:CGRectMake(25, 60, 70, 70)];
-    headerIV.layer.cornerRadius = headerIV.width/2;
-    headerIV.tag = 20;
-    [_contentView addSubview:headerIV];
+    self.headerIV = [[UIImageView alloc] initWithFrame:CGRectMake(25, 60, 70, 70)];
+    self.headerIV.layer.cornerRadius = self.headerIV.width/2;
+    self.headerIV.tag = 20;
+    self.headerIV.userInteractionEnabled = YES;
+    self.headerIV.clipsToBounds = YES;
+    [_contentView addSubview:self.headerIV];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(takePhoto)];
+    [self.headerIV addGestureRecognizer:tap];
     
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, imageBgV.bottom + 10, self.view.width, self.view.height - imageBgV.bottom - 80) style:UITableViewStylePlain];
     _tableView.dataSource = self;
@@ -160,6 +173,47 @@
 - (void)reloadImage:(NSNotificationCenter *)notif
 {
     [self reloadImage];
+}
+
+#pragma mark - UIImagePickerControllerDelegate
+//后期异步处理
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    UIImage *imageO = [info objectForKey:UIImagePickerControllerOriginalImage];
+    self.headerIV.image = imageO;
+    [self.navigationController dismissViewControllerAnimated:YES completion:^{}];
+}
+
+#pragma mark - Photo
+
+// 相册是否可用
+- (BOOL)isPhotoAvailable:(UIImagePickerControllerSourceType)type {
+    return [UIImagePickerController isSourceTypeAvailable:type];
+}
+
+- (void)showPhoto:(UIImagePickerControllerSourceType)type viewcontroller:(UIViewController<UINavigationBarDelegate, UIImagePickerControllerDelegate> *)vc {
+    if ([self isPhotoAvailable:type]) {
+        UIImagePickerController *controller = [[UIImagePickerController alloc] init];
+        [controller setSourceType:type];
+        [controller setDelegate:(id)vc];
+        [vc.navigationController presentViewController:controller animated:YES completion:^{}];
+    }else {
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:UIImagePickerControllerSourceTypePhotoLibrary?@"相册":@"相机" message:@"不支持" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+}
+
+#pragma mark - Action
+
+- (void)showPhotoLibrary:(UIViewController<UINavigationBarDelegate, UIImagePickerControllerDelegate> *)vc {
+    [self showPhoto:UIImagePickerControllerSourceTypePhotoLibrary viewcontroller:vc];
+}
+
+- (void)takePhoto:(UIViewController<UINavigationBarDelegate, UIImagePickerControllerDelegate> *)vc {
+    [self showPhoto:UIImagePickerControllerSourceTypeCamera viewcontroller:vc];
+}
+
+- (void)takePhoto {
+    [self takePhoto:self];
 }
 
 @end
